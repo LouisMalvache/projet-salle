@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitPass - Ma Passion Musculation</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Ton CSS personnalisé -->
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="fas fa-dumbbell me-2"></i>FitAPP
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="accueil.html"><i class="bi bi-house-door-fill me-1"></i>Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="passion.html"><i class="bi bi-heart-fill me-1"></i>Ma Passion</a></li>
+          <li class="nav-item"><a class="nav-link" href="programmes.html"><i class="bi bi-activity me-1"></i>Programmes</a></li>
+          <li class="nav-item"><a class="nav-link" href="nutrition.html"><i class="bi bi-apple me-1"></i>Nutrition</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html"><i class="bi bi-images me-1"></i>Galerie</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope-fill me-1"></i>Contact</a></li>
+        </ul>
+        <div class="ms-auto d-flex">
+          <a href="cv-fr.html" class="btn btn-outline-light btn-sm me-2">cv FR</a>
+          <a href="cv anglais.html" class="btn btn-outline-light btn-sm"> cv EN</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel -->
+  <div id="myCarousel" class="carousel slide carousel-custom container">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner rounded-4 shadow">
+      <div class="carousel-item active">
+        <img src="img/img1.jpg" class="d-block w-100" alt="Séance musculation 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img/img2.jpg" class="d-block w-100" alt="Séance musculation 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img/img3.jpg" class="d-block w-100" alt="Séance musculation 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  <!-- Contenu -->
+  <div class="container my-5">
+    <div class="card-custom p-4">
+      <h2><i class="fas fa-fire me-2 text-warning"></i>Ma Philosophie</h2>
+      <p class="lead">La musculation est bien plus qu’un sport : c’est une discipline qui forge le corps et l’esprit.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <i class="fas fa-dumbbell text-warning fs-2 me-2"></i>
+        <span>FitAPP © 2025</span>
+      </div>
+      <div>
+        <a href="#" class="social-icon me-3"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="social-icon me-3"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-icon me-3"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Activer nav active
+    const currentPage = window.location.pathname.split('/').pop();
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>

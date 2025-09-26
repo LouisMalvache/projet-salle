@@ -1,0 +1,87 @@
+:root {
+  --primary-color: #FF4500;
+  --secondary-color: #1A1A1A;
+  --accent-color: #242424;
+  --text-light: #fff;
+  --text-muted: #999;
+  --gradient-primary: linear-gradient(45deg, #FF4500, #ff6b35);
+  --gradient-dark: linear-gradient(135deg, #1A1A1A, #2C2C2C);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--gradient-dark);
+  color: var(--text-light);
+  margin: 0;
+  padding-top: 70px;
+}
+
+/* Navbar */
+.navbar-custom {
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.navbar-brand-custom {
+  font-weight: 900;
+  font-size: 1.6rem;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cartes */
+.card {
+  background: linear-gradient(135deg, var(--accent-color), #2a2a2a);
+  border: 1px solid rgba(255, 69, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  color: var(--text-light);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.card-body {
+  color: var(--text-light);
+}
+
+.card-body h3,
+.card-body h4,
+.card-body h5,
+.card-body h6 {
+  color: var(--text-light);
+}
+
+.card-body h3,
+.card-body h4 {
+  border-bottom: 1px solid var(--primary-color) !important;
+}
+
+.card-body p,
+.card-body .text-muted {
+  color: var(--text-muted);
+}
+
+/* Footer */
+.footer-custom {
+  background: rgba(26, 26, 26, 0.95);
+  border-top: 2px solid var(--primary-color);
+  padding: 1.5rem 0;
+  color: var(--text-light);
+}
+
+.social-icon {
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
