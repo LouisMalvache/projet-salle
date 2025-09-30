@@ -1,82 +1,334 @@
 :root {
-  --primary-color: #FF4500;
-  --secondary-color: #1A1A1A;
-  --accent-color: #242424;
-  --text-light: #fff;
-  --text-muted: #999;
-  --gradient-primary: linear-gradient(45deg, #FF4500, #ff6b35);
-  --gradient-dark: linear-gradient(135deg, #1A1A1A, #2C2C2C);
+    --primary-color: #FF4500;
+    --secondary-color: #1A1A1A;
+    --accent-color: #242424;
+    --text-light: #fff;
+    --text-muted: #999;
+    --gradient-primary: linear-gradient(45deg, #FF4500, #ff6b35);
+    --gradient-dark: linear-gradient(135deg, #1A1A1A, #2C2C2C);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--gradient-dark);
-  color: var(--text-light);
-  margin: 0;
-  padding-top: 70px; /* pour éviter que la navbar recouvre */
+    font-family: 'Inter', sans-serif;
+    background: var(--gradient-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    padding-top: 80px;
 }
 
-/* Navbar */
-.navbar-custom {
-  background: rgba(26, 26, 26, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-}
-.navbar-brand-custom {
-  font-weight: 900;
-  font-size: 1.6rem;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Navbar & Global Card Styles */
+.navbar-custom, .footer-custom {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(255, 255, 255, 0.3);
 }
 
-/* Breadcrumb */
-.breadcrumb-custom {
-  background: rgba(36, 36, 36, 0.8);
-  border: 1px solid rgba(255, 69, 0, 0.2);
-}
-.breadcrumb-custom a {
-  color: var(--text-light);
-}
-.breadcrumb-custom .active {
-  color: var(--primary-color);
-}
-
-/* Carousel */
-.carousel-custom img {
-  height: 60vh;
-  object-fit: cover;
-  filter: brightness(0.85);
-}
-.carousel-custom img:hover {
-  filter: brightness(1);
-  transform: scale(1.01);
-  transition: all 0.3s ease;
-}
-
-/* Cards */
-.card-custom {
-  background: linear-gradient(135deg, var(--accent-color), #2a2a2a);
-  border: 1px solid rgba(255, 69, 0, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
-
-/* Footer */
+.navbar-custom { padding: 1rem 0; }
 .footer-custom {
-  background: rgba(26, 26, 26, 0.95);
-  border-top: 2px solid var(--primary-color);
-  padding: 1.5rem 0;
+    border-top: 2px solid var(--primary-color);
+    padding: 1.5rem 0 2rem;
+    margin-top: 5rem;
 }
-.footer-custom span {
-  color: var(--text-light);
+
+.navbar-brand-custom, .hero-section h1 {
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
 }
+.navbar-brand-custom { font-size: 1.6rem; text-transform: uppercase; }
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    transition: all 0.3s;
+    margin: 0 0.5rem;
+}
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+    transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+.hero-section h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 0.8s ease; }
+.hero-section p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+/* Program Card & Day Card Base */
+.program-card, .day-card, .breadcrumb-custom {
+    background: linear-gradient(135deg, var(--accent-color), #2a2a2a);
+    border: 2px solid rgba(255, 69, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Program Card Specifics */
+.program-card {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    padding: 2rem !important;
+}
+.program-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(255, 69, 0, 0.4);
+}
+
+.program-icon {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+}
+.program-card:hover .program-icon { transform: scale(1.1) rotate(5deg); }
+
+.program-card h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.5rem;
+}
+
+.program-card .days-badge {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+
+.program-features { list-style: none; padding: 0; margin: 1rem 0; position: relative; z-index: 1; }
+.program-features li { color: var(--text-light); padding: 0.4rem 0; font-size: 0.9rem; }
+.program-features li i { color: var(--primary-color); margin-right: 0.5rem; }
+
+/* Session Details & Buttons */
+#session-details {
+    animation: fadeInUp 0.6s ease;
+    background: rgba(36, 36, 36, 0.6);
+    border-radius: 30px;
+    padding: 3rem 2rem;
+    margin-top: 3rem;
+    border: 1px solid rgba(255, 69, 0, 0.2);
+}
+
+.btn-back {
+    background: rgba(255, 69, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+.btn-back:hover {
+    background: var(--gradient-primary);
+    color: var(--text-light);
+    transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+}
+
+#program-title {
+    color: var(--primary-color);
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Day Card Specifics */
+.day-card { padding: 2rem; margin-bottom: 2rem; }
+.day-card:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+
+.day-card h4 {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.day-card h5 {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-left: 3px solid var(--primary-color);
+    padding-left: 1rem;
+}
+
+/* --- EXERCISE ITEM (MISES À JOUR POUR L'IMAGE) --- */
+.exercise-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+    /* NOUVEAU : Permet au conteneur d'image de passer à la ligne */
+    flex-wrap: wrap; 
+}
+.exercise-item:hover {
+    background: rgba(255, 69, 0, 0.1);
+    transform: translateX(5px);
+}
+
+.exercise-name { color: var(--text-light); font-weight: 500; }
+
+/* Nouveau conteneur pour le bouton et les stats */
+.exercise-right-side {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre le bouton et les stats */
+}
+
+/* Bouton pour basculer l'image */
+.btn-image-toggle {
+    background-color: #383838;
+    border: none;
+    color: var(--primary-color); 
+    padding: 5px 8px;
+    border-radius: 5px;
+    transition: all 0.2s;
+    line-height: 1; 
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.btn-image-toggle:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    transform: scale(1.05);
+}
+
+/* Style du bouton lorsqu'il est actif (l'image est affichée) */
+.btn-image-toggle.active-show {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* Conteneur de l'image (apparaît sous l'exercice) */
+.exercise-image-container {
+    width: 100%; /* Prend toute la largeur disponible */
+    display: none; /* Masqué par défaut. Le JS le passe à 'flex' */
+    justify-content: center; /* Centre l'image horizontalement */
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4); 
+    border-radius: 8px;
+    /* Assure que le conteneur d'image est toujours en dessous et ne force pas le wrap */
+    flex-basis: 100%; 
+}
+
+/* Style de l'image */
+.exercise-preview-img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: contain;
+    filter: brightness(1.2) contrast(1.1); 
+}
+
+/* Styles existants pour les stats (juste pour être sûr) */
+.exercise-stats { 
+    color: var(--primary-color); 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    display: inline; /* Laisse le JS manipuler le display: none; */
+}
+
+
+.rest-note {
+    background: rgba(255, 69, 0, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    border-radius: 10px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* Footer Icons */
 .social-icon {
-  color: var(--text-muted);
-  font-size: 1.5rem;
-  transition: 0.3s;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    display: inline-block;
 }
-.social-icon:hover {
-  color: var(--primary-color);
-  transform: translateY(-3px);
+.social-icon:hover { color: var(--primary-color); transform: translateY(-5px); }
+
+/* Utility & Animations */
+.muscle-card { cursor: pointer; transition: 0.3s; }
+.muscle-card:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); }
+.exercise-card img, .carousel-custom img { width: 100%; border-radius: 12px; }
+.carousel-custom img { height: 60vh; object-fit: cover; filter: brightness(0.85); }
+.carousel-custom img:hover { filter: brightness(1); transform: scale(1.01); transition: all 0.3s ease; }
+.breadcrumb-custom { background: rgba(36, 36, 36, 0.8); }
+.breadcrumb-custom a { color: var(--text-light); }
+.breadcrumb-custom .active { color: var(--primary-color); }
+.fade-in { animation: fadeInUp 0.6s ease; }
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body { padding-top: 70px; }
+    .hero-section h1 { font-size: 2rem; }
+    #program-title { font-size: 1.8rem; }
+    .program-card { padding: 1.5rem !important; }
+    .program-icon { font-size: 2.5rem; }
+    /* Ajustement du mobile pour les exercices */
+    .exercise-item {
+        /* On retire la mise en page en colonne si elle était forcée auparavant */
+        flex-direction: row; 
+        align-items: center;
+        gap: 0;
+    }
+    .exercise-preview-img {
+        max-width: 100%; /* L'image prend toute la largeur sur mobile */
+    }
 }
