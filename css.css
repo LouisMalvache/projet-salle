@@ -41,7 +41,7 @@ body {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: 2px;
+    background-clip: text;
 }
 .navbar-brand-custom { font-size: 1.6rem; text-transform: uppercase; }
 
